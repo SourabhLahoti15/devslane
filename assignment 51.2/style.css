@@ -1,0 +1,25 @@
+.bg-green{
+    background: green;
+}
+.border-10-solid-black{
+    border: 10px solid black;
+}
+.border-5-dotted-black{
+    border: 5px dotted black;
+}
+.df{
+    display: flex;
+}
+.h-60vh{
+    height: 60vh;
+}
+.h-fc{
+    height: fit-content;
+}
+.m-auto{
+    margin: auto;
+}
+.m-y-10{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
