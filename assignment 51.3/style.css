@@ -11,6 +11,9 @@
 .h-35{
     height: 35%;
 }
+.h-fit-content{
+    height: fit-content;
+}
 .border-2-solid-grey{
     border: 2px solid grey;
 }
