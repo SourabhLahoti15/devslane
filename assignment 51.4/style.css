@@ -1,0 +1,60 @@
+:root{
+    --main-color: rgb(79, 69, 229);
+}
+.p-10{
+    padding: 10px;
+}
+.font-family-ss{
+    font-family: sans-serif;
+}
+.font-bold{
+    font-weight: 900;
+}
+.font-size-12{
+    font-size: 12px;
+}
+.w-55{
+    width: 55%;
+}
+.w-45{
+    width: 45%;
+}
+.w-100{
+    width: 100%;
+}
+.df{
+    display: flex;
+}
+.fd-col{
+    flex-direction: column;
+}
+.as-center{
+    align-self: center;
+}
+.gap-10{
+    gap: 10px;
+}
+.color-main{
+    color: var(--main-color);
+}
+.color-white{
+    color: white;
+}
+.bg-main{
+    background-color: var(--main-color);
+}
+.border-none{
+    border: none;
+}
+.bg-white{
+    background-color: white;
+}
+.box-shadow{
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.br-5{
+    border-radius: 5px;
+}
+.color-grey{
+    color: grey;
+}
