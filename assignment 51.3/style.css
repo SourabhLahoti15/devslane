@@ -1,0 +1,33 @@
+.w-30{
+    width: 30%;
+}
+.w-100{
+    width: 100%;
+}
+.border-2-solid-grey{
+    border: 2px solid grey;
+}
+.p-5{
+    padding: 5px;
+}
+.p-8{
+    padding: 8px;
+}
+.bg-grey{
+    background-color: grey;
+}
+.color-white{
+    color: white;
+}
+.border-none{
+    border: none;
+}
+.df{
+    display: flex;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.gap-10{
+    gap: 10px;
+}
