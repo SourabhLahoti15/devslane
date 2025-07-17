@@ -1,8 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .w-30{
     width: 30%;
 }
 .w-100{
     width: 100%;
+}
+.h-35{
+    height: 35%;
 }
 .border-2-solid-grey{
     border: 2px solid grey;
@@ -24,6 +31,9 @@
 }
 .df{
     display: flex;
+}
+.fd-col{
+    flex-direction: column;
 }
 .flex-wrap{
     flex-wrap: wrap;
