@@ -2,16 +2,22 @@ import React from "react";
 
 function Product(props) {
     return (
-        <>
-        <img src="https://th.bing.com/th/id/OIP.nu49I3ew1V7FCt9SPMh1EQHaHa?w=194&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" />
-        <p>{props.name}</p>
-        <p>{props.description}</p>
-        <div>
-            <img src="" alt="" />
+        <div className="w-fit h-fit">
+            <img className=" h-[70%]" src={props.img} alt="product-img" />
+            <div className="h-[30%]">
+                <p>{props.name}</p>
+                <p>{props.description}</p>
+                <div className="text-red-500">
+                    <i className="fa-regular fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
+                </div>
+                <p>{props.price}</p>
+            </div>
         </div>
-        <p>{props.price}</p>
-        </>
-    )
+    );
 }
 
 export default Product;
