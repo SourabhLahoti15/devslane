@@ -2,7 +2,7 @@ import React from "react";
 
 function ProductDetails(props){
     return (
-        <div class="flex gap-8 mx-[20%] h-fit mb-64 p-4 border-2 border-gray-200 bg-white">
+        <div class="flex gap-8 mx-[20%] h-fit my-64 p-4 border-2 border-gray-200 bg-white">
             <img src={props.img} alt={props.name} class="w-full max-w-xs" />
             <div class="flex flex-col gap-3">
                 <h1 class="text-2xl text-gray-800 font-semibold">{props.name}</h1>
