@@ -3,7 +3,7 @@ import Product from "./Product";
 
 function ProductList(props) {
   return (
-    <div className="flex flex-wrap justify-center items-center gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-1 ">
       {props.products.map(function (product) {
         return <Product
           key={product.id}

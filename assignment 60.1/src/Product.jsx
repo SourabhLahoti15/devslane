@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ProductDetails from "./ProductDetails";
 
 function Product(props) {
   return (
-    <Link to={`/products/${props.id}`} className="p-2 max-w-[30%] border-2 border-gray-50">
+    <Link to={`/products/${props.id}`} className="p-2 w-full aspect-square">
       <div>
-        <img className=" h-[70%]" src={props.thumbnail} alt="product-img" />
+        <img className="h-[70%] w-full" src={props.thumbnail} alt="product-img" />
         <div className="h-[30%]">
           <p className="text-lg font-bold line-clamp-1 min-h-[1.5rem]">
             {props.title}

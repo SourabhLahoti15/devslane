@@ -3,6 +3,7 @@ import ProductList from "./ProductList";
 import NoMatching from "./NoMatching.jsx";
 import { useEffect } from "react";
 import { getProducts } from "./api.js";
+import Loading from "./Loading.jsx";
 
 function HomePage() {
   const [query, setQuery] = useState("");
@@ -49,14 +50,14 @@ function HomePage() {
   }, [query, sort, products]);
 
   if(loading){
-    return <div className="my-[10%]">Loading...</div>
+    return <Loading />
   }
 
   return (
-    <div className="mx-[20%] my-[10%] flex flex-col align-center justify-center gap-8 px-14 py-[5%] w-fit bg-white">
-      <div className="flex self-end gap-5">
+    <div className="my-[8rem] flex flex-col align-center justify-center gap-8 mx-16 sm:mx-24 md:mx-24 lg:mx-44 px-2 sm:px-4 md:px-8 lg:px-12 py-[5%] w-fit bg-white">
+      <div className="flex flex-col sm:flex-row self-end gap-3 sm:gap-5">
         <input
-          className="border-2 px-2 rounded"
+          className="border-2 px-2 rounded h-11"
           onInput={setQueryFunc}
           value={query}
           placeholder="search"
@@ -67,7 +68,7 @@ function HomePage() {
           id="sorting"
           value={sort}
           onChange={setSortFunc}
-          className="border-2 rounded p-2 w-fit text-gray-500"
+          className="border-2 h-11 rounded p-2 w-fit text-gray-500"
         >
           <option value="default">Default sorting</option>
           <option value="name a-z">Sort by name: a-z</option>
