@@ -4,9 +4,10 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { getProductById } from "./api";
 import Loading from "./Loading";
+import Button from "./Button";
 import Notfound from "./NotFound";
 
-function ProductDetails({addToCartApp}) {
+function ProductDetails({ addToCartApp }) {
   const params = useParams();
   const id = +params.id;
   const [product, setProduct] = useState();
@@ -16,31 +17,33 @@ function ProductDetails({addToCartApp}) {
   useEffect(
     function () {
       const product = getProductById(id);
-      product.then(function (response) {
-        setProduct(response.data);
-        setQuantity(1);
-        setLoading(false);
-      }).catch(function() {
-        setLoading(false);
-      });
+      product
+        .then(function (response) {
+          setProduct(response.data);
+          setQuantity(1);
+          setLoading(false);
+        })
+        .catch(function () {
+          setLoading(false);
+        });
     },
     [id]
   );
 
-  function changeQuantity(event){
+  function changeQuantity(event) {
     setQuantity(+event.target.value);
   }
 
-  function addToCartpd(){
+  function addToCartpd() {
     addToCartApp(id, quantity);
   }
 
-  if(loading) {
+  if (loading) {
     return <Loading />;
   }
 
   if (!product) {
-    return <Notfound />;  
+    return <Notfound />;
   }
 
   return (
@@ -71,9 +74,7 @@ function ProductDetails({addToCartApp}) {
               onChange={changeQuantity}
               className="p-1 w-16 h-full border-2 rounded"
             />
-            <button className="px-5 py-2 whitespace-nowrap bg-red-500 text-white rounded text-xs font-bold" onClick={addToCartpd}>
-              ADD TO CART
-            </button>
+            <Button className="text-xs" onClick={addToCartpd}>ADD TO CART</Button>
           </div>
         </div>
       </div>
