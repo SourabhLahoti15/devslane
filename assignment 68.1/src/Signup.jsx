@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import Input from "./Input";
+import FormInput from "./FormInput";
 
 function Signup() {
   function handleSignup(values) {
@@ -32,22 +32,22 @@ function Signup() {
       >
         <Form className="w-[18rem] flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <Input label="Name" name="name" type="text" placeholder="NAME" />
-            <Input
+            <FormInput label="Name" name="name" type="text" placeholder="NAME" />
+            <FormInput
               label="Email"
               name="email"
               type="email"
               placeholder="EMAIL"
               autoComplete="email"
             />
-            <Input
+            <FormInput
               label="Password"
               name="password"
               type="password"
               placeholder="PASSWORD"
               autoComplete="new-password"
             />
-            <Input
+            <FormInput
               label="Confirm Password"
               name="confirmPassword"
               type="password"

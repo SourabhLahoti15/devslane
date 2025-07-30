@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { memo } from "react";
 
 function Button(props){
     return (
@@ -6,4 +7,4 @@ function Button(props){
     )
 }
 
-export default Button;
+export default memo(Button);

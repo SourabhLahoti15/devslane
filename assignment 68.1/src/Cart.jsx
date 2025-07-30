@@ -1,8 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { CiCircleRemove } from "react-icons/ci";
+import { getProductById } from "./api";
+import Loading from "./Loading";
 
-function Cart() {
+function Cart({ cart, setCartFunc, totalQuantity, setTotalQuantityFunc }) {
+  const [loading, setLoading] = useState(true);
+  const [cartProducts, setCartProducts] = useState([]);
+  const [tempCart, setTempCart] = useState(cart);
+
+  // useEffect(function () {
+  //   setTempCart(cart);
+  // }, [cart]);
+
+  const ids = Object.keys(cart);
+
+  useEffect(function () {
+    const promises = ids.map(function (id) {
+      return getProductById(id);
+    });
+    Promise.all(promises).then(function (responses) {
+      const cartProducts = responses.map(response => response.data)
+      setCartProducts(cartProducts);
+      setLoading(false);
+    });
+  }, [cart]);
+
+  function handleRemove(event) {
+    const pid = event.currentTarget.getAttribute("pid");
+    const updatedCart = { ...cart };
+    delete updatedCart[pid];
+    const removedQty = cart[pid];
+    setTotalQuantityFunc(totalQuantity - removedQty);
+    setCartFunc(updatedCart);
+    setLoading(true);
+  }
+
+  function handleChange(event) {
+    const pid = event.target.getAttribute("pid");
+    const newQty = +event.target.value;
+    const newTempCart = { ...tempCart, [pid]: newQty };
+    setTempCart(newTempCart);
+  }
+
+  function handleUpdateCart() {
+    setTotalQuantityFunc(Object.values(tempCart).reduce(function (sum, qty) {
+      return sum + Number(qty);
+    }, 0))
+    setCartFunc(tempCart);
+  }
+
+  if (loading) {
+    return <Loading></Loading>
+  }
+
   return (
     <div className="my-[8rem] flex flex-col align-center justify-center gap-8 mx-16 sm:mx-24 md:mx-24 lg:mx-32 px-2 sm:px-4 md:px-8 lg:px-12 py-[5%] bg-white">
       <h1 className="text-3xl">Cart</h1>
@@ -19,20 +70,39 @@ function Cart() {
             </tr>
           </thead>
           <tbody className="border">
-            <tr className="m-4 border">
-              <td><CiCircleRemove className="text-2xl" /></td>
-              <td>product.thumbnail</td>
-              <td className="text-red-500 font-bold">product.name</td>
-              <td>product.price</td>
-              <td>
-                <input
-                  className="border text-center w-10"
-                  type="number"
-                  value="1"
-                />
-              </td>
-              <td>$15</td>
-            </tr>
+            {cartProducts.map((cartProduct) => (
+              <tr key={cartProduct.id} className="m-4 border">
+                <td>
+                  <button pid={cartProduct.id} onClick={handleRemove}>
+                    <CiCircleRemove className="text-2xl" />
+                  </button>
+                </td>
+                <td>
+                  <img
+                    src={cartProduct.thumbnail}
+                    alt={cartProduct.title}
+                    className="w-24"
+                  />
+                </td>
+                <td className="text-red-500 font-bold">
+                  {cartProduct.title}
+                </td>
+                <td>${cartProduct.price}</td>
+                <td>
+                  <input
+                    className="border text-center w-10"
+                    type="number"
+                    min={1}
+                    pid={cartProduct.id}
+                    value={localCart[cartProduct.id]}
+                    onChange={handleChange}
+                  />
+                </td>
+                <td>
+                  ${(cartProduct.price * cart[cartProduct.id]).toFixed(2)}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
         <div className="p-2 w-full flex justify-between border">
@@ -44,7 +114,7 @@ function Cart() {
             />
             <Button className="text-sm">APPLY COUPON</Button>
           </div>
-          <Button className="text-sm">UPDATE CART</Button>
+          <Button className="text-sm" onClick={handleUpdateCart}>UPDATE CART</Button>
         </div>
       </div>
       <div className="self-end border">

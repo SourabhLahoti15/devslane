@@ -1,5 +1,5 @@
 import React from "react";
-import Input from './Input';
+import FormInput from './FormInput';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ function ForgetPassword() {
 
           <div className="w-full flex flex-col gap-1">
             <label htmlFor="email" className="w-full">Your work email</label>
-            <Input
+            <FormInput
               label="Your work email"
               name="email"
               type="email"
