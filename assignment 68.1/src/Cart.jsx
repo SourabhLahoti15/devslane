@@ -9,9 +9,9 @@ function Cart({ cart, setCartFunc, totalQuantity, setTotalQuantityFunc }) {
   const [cartProducts, setCartProducts] = useState([]);
   const [tempCart, setTempCart] = useState(cart);
 
-  // useEffect(function () {
-  //   setTempCart(cart);
-  // }, [cart]);
+  useEffect(function () {
+    setTempCart(cart);
+  }, [cart]);
 
   const ids = Object.keys(cart);
 
