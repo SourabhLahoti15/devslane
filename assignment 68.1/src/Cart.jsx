@@ -94,7 +94,7 @@ function Cart({ cart, setCartFunc, totalQuantity, setTotalQuantityFunc }) {
                     type="number"
                     min={1}
                     pid={cartProduct.id}
-                    value={localCart[cartProduct.id]}
+                    value={tempCart[cartProduct.id]}
                     onChange={handleChange}
                   />
                 </td>
