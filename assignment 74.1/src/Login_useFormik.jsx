@@ -67,6 +67,9 @@ function Login_useFormik() {
                     </Link>
                 </div>
             </form>
+            <p className="text-white">
+                Don't have an account? <Link to="/signup">Sign up</Link>
+            </p>
         </div>
     );
 }

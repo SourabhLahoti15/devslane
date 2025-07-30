@@ -53,6 +53,9 @@ function Login_withFormik(props) {
                     </Link>
                 </div>
             </form>
+            <p className="text-white">
+                Don't have an account? <Link to="/signup">Sign up</Link>
+            </p>
         </div>
     );
 }
