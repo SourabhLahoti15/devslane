@@ -47,6 +47,7 @@ function App() {
               <li key={index} className="flex items-center gap-2">
                 <input
                   type="checkbox"
+                  checked={false}
                   onChange={() => markAsDone(index)}
                   className="w-4 h-4"
                 />
