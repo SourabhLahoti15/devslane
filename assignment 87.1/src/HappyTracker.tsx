@@ -4,7 +4,7 @@ import { happyCountSelector } from "./Selectors";
 
 type HappyTrackerProps = {};
 
-const HappyTracker: FC<HappyTrackerProps> = (props) => {
+const HappyTracker: FC<HappyTrackerProps> = () => {
     const happyCount = useSelector(happyCountSelector);
     return <div className="bg-orange-700 text-white p-2">You were happy {happyCount} times</div>;
 };

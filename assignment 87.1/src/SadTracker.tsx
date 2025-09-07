@@ -4,7 +4,7 @@ import { sadCountSelector } from "./Selectors";
 
 type SadTrackerProps = {};
 
-const SadTracker: FC<SadTrackerProps> = (props) => {
+const SadTracker: FC<SadTrackerProps> = () => {
     const sadCount = useSelector(sadCountSelector);
     return <div className="bg-blue-700 text-white p-2">You were sad {sadCount} times</div>;
 };

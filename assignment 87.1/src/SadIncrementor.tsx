@@ -4,7 +4,7 @@ import { sadButtonClicked } from "./action";
 
 type SadIncrementorType = {};
 
-const SadIncrementor: FC<SadIncrementorType> = (props) => {
+const SadIncrementor: FC<SadIncrementorType> = () => {
     const dispatch = useDispatch();
     function increment() {
         dispatch(sadButtonClicked);
