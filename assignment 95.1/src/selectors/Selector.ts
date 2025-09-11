@@ -26,4 +26,9 @@ export const ShowsSelector = createSelector(
         queryShowsMap[query]?.map((showid) => showsMap[showid])
 );
 
+export const ShowidCastsSelector = createSelector(
+    ShowsReducerSelector,
+    (showsReducer) => showsReducer.showid_casts
+);
+
 export const LoadingSelector = (state: State) => state.LoadingReducer.loading;

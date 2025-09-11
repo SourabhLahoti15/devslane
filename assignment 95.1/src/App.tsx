@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SearchBar from "./SearchBar";
 import Show from "./Show";
 import Shows from "./Shows";

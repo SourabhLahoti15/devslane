@@ -8,6 +8,7 @@ import { SHOW_LOADED } from "../actions/ShowAction";
 export type State = {
     shows: { [showId: number]: Show };
     query_showids: { [query: string]: number[] };
+    showid_casts: {[showId: number]: []};
     loading: boolean
     show_loading: {[showid: number]: boolean}
 };
@@ -15,6 +16,7 @@ export type State = {
 export const initialState: State = {
     shows: {},
     query_showids: {},
+    showid_casts: [],
     loading: false,
     show_loading: {}
 };
@@ -36,8 +38,10 @@ function ShowReducer(state = initialState, action: AnyAction): State {
             });
         case SHOW_LOADED:
             return produce(state, (draft) => {
-                const show: Show = action.payload;
+                const show: Show = action.payload.show;
+                const casts = action.payload.casts;
                 draft.shows[show.id] = show;
+                draft.showid_casts[show.id] = casts;
             });
         default:
             return state;

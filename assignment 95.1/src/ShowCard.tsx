@@ -1,4 +1,3 @@
-import React from "react";
 import type { Show } from "./models/Show";
 import { Link } from "react-router-dom";
 

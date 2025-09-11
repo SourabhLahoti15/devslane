@@ -27,11 +27,12 @@ const BASE_URL = "https://api.tvmaze.com";
 export const searchShowsapi = async (query: string) => {
     const response = await axios.get(`${BASE_URL}/search/shows?q=${query}`);
     const shows = response.data.map((item: any) => item.show);
-    const showCastArr = [];
+    const showCastsArr = [];
     for (let i = 0; i < shows.length; i++) {
-        showCastArr.push(getShowCasts(shows[i]));
+        showCastsArr.push(getShowCasts(shows[i]));
     }
-    return showCastArr;
+    console.log(showCastsArr)
+    return Promise.all(showCastsArr);
 };
 
 export const getShowCasts = async (show: Show) => {
@@ -44,4 +45,9 @@ export const loadShowapi = (showid: number) => {
     return axios
         .get(`${BASE_URL}/shows/${showid}`)
         .then((response) => response.data);
+};
+
+export const loadShowCastsapi = async (showid: number) => {
+    const response = await axios.get(`${BASE_URL}/shows/${showid}/cast`);
+    return response.data.map((item: any) => item.person);
 };
