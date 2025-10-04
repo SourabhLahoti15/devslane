@@ -32,3 +32,4 @@ const withRouter = <Props extends WithRouterProps>(
 };
 
 export default withRouter;
+
